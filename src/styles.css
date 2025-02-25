@@ -14,8 +14,6 @@ body {
   
   html {
     height: 100%;
-    /* width: 100vw; */
-    /* margin: auto; */
   }
   
   .app-container {
@@ -46,64 +44,86 @@ body {
     display: flex;
     gap: 10px;
   }
-  
-  /* Stats Section */
+
+  /* Stats CSS */
+
   .stats-container {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr); /* Changed from 5 to 6 */
-    gap: 10px;
-    margin-bottom: 1%;
-  }
-  
-  
-  .stats-card {
-    text-align: center;
-    padding: 5px;
-    background-color: #1a1a1a;
-    color: rgb(0, 0, 0);
-    height: 80px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    width: 100%;
+    height: 100%;
+    align-items: center;
   }
-  
+
+  .stats-card {
+    flex: 1;
+    min-width: 0;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 2px solid #2f2f2f;
+    box-shadow: 3px 3px 0 #000000;
+  }
+
   .stats-label {
-    font-size: 12px;
+    font-size: 0.75rem;
+    text-transform: capitalize;
+    margin-bottom: 2px;
+    white-space: nowrap;
     color: #575757;
   }
-  
+
   .stats-value {
-    font-size: 20px;
+    font-size: 1.3rem;
     font-weight: bold;
     color: rgb(0, 0, 0);
   }
+
+  .stat-gif {
+    max-width: 100%;
+    max-height: 40px;
+    object-fit: contain;
+  }
+
+  .gif-container {
+    flex: 0 0 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 5px;
+  }
+  
   
   /* Main Content */
   .main-content {
     display: grid;
-    grid-template-columns: 1fr 2.5fr 1fr; /* Transactions | Grid | Leaderboard */
+    grid-template-columns: minmax(24rem, 1fr) minmax(18rem, 2fr) minmax(24rem, 1fr);
     gap: 12px;
-    height: 700px;
+    height: 44rem;
     width: 100%;
-    min-width: 100%; /* Prevent squeezing */
     align-items: stretch;
+    margin-bottom: 0.7rem;
   }
+
   
   .sidebar {
     display: flex;
     flex-direction: column;
-    height: 100%;
-    min-width: 100px; /* Ensuring sidebars have a minimum width */
+    height: 95%;
+    min-width: 19.9rem; /* Ensuring sidebars have a minimum width */
     background-color: #ffffff34;
     color: black;
   }
   
   .sidebar-title {
-    font-size: 16px;
+    font-size: 1.3rem;
     font-weight: bold;
-    margin-bottom: 8px;
+    margin-bottom: 0.1rem;
     border-bottom: 1px solid #444;
-    padding-bottom: 4px;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
     color: rgb(37, 37, 37);
   }
   
@@ -111,45 +131,19 @@ body {
   .leaderboard-list {
     list-style: none;
     padding: 0;
-    margin: 0;
-    /* position: absolute; */
-    flex-grow: 1;
-    overflow-y: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    position: absolute;
   }
   
   .transaction-list li,
   .leaderboard-list li {
-    font-size: 14px;
-    padding: 6px 0;
-    border-bottom: 1px solid #333;
+    font-size: 15px;
+    padding: 0.11rem 0;
     color: rgb(0, 0, 0);
-    /* width: 100%; */
-  }
-  
-  .transaction-list li:last-child,
-  .leaderboard-list li:last-child {
-    border-bottom: none;
   }
 
-  .transaction-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    flex-grow: 1;
-    overflow-y: auto;
-    min-height: 200px; /* Ensures the sidebar does not collapse */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-/* Ensures sidebar has a fixed height even if empty */
-.sidebar {
-    display: flex;
-    flex-direction: column;
-    min-height: 300px; /* Adjust this value to fit your layout */
-}
-
+  /* TILES CSS */
 
   .tile {
     display: flex;
@@ -172,6 +166,16 @@ body {
     text-shadow: 1px 1px 2px black;
     pointer-events: none; /* So that emoji doesn't block clicks */
   }
+
+  .tile-overlay-gif {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    pointer-events: none; 
+  }
   
   
   /* Grid Section */
@@ -180,7 +184,6 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    /* height: 100%; */
     position: relative;
     margin-top: 5%;
   }
@@ -214,175 +217,13 @@ body {
   }
 
   .hover-info {
-    margin-top: 70%;
+    margin-top: 80%;
     font-size: 16px;
     font-weight:700;
     color: rgb(255, 255, 255);
     text-align: center;
     position: absolute;
   }
-
-/* Add these styles to your styles.css file */
-
-/* Add these styles to your styles.css file */
-
-/* Container for stats cards in the top row */
-.stats-container {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-  }
-  
-  /* Individual stat card */
-  .stats-card {
-    flex: 1;
-    min-width: 0;
-    padding: 8px;
-    display: flex;
-    align-items: center;
-  }
-  
-  /* Layout inside each stat card */
-  .stats-container {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-  }
-  
-  /* Container for the GIF on the left */
-  .gif-container {
-    flex: 0 0 30%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-right: 5px;
-  }
-  
-  /* Style for the GIF image */
-  .stat-gif {
-    max-width: 100%;
-    max-height: 40px;
-    object-fit: contain;
-  }
-  
-  /* Container for the text content */
-  .stats-content {
-    flex: 0 0 70%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding-left: 5px;
-    overflow: hidden;
-  }
-  
-  /* Label style (stat name) */
-  .stats-label {
-    font-size: 0.75rem;
-    text-transform: capitalize;
-    margin-bottom: 2px;
-    white-space: nowrap;
-  }
-  
-  /* Value style (number) */
-  .stats-value {
-    font-size: 1.2rem;
-    font-weight: bold;
-  }
-  
-  /* Make sure pixel-retroui Cards maintain their white background */
-  .stats-card {
-    background-color: white;
-    border: 2px solid #2f2f2f;
-    box-shadow: 3px 3px 0 #000000;
-  }/* Add these styles to your styles.css file */
-
-/* Container for stats cards in the top row */
-.stats-container {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-  }
-  
-  /* Individual stat card */
-  .stats-card {
-    flex: 1;
-    min-width: 0;
-    padding: 8px;
-    display: flex;
-    align-items: center;
-  }
-  
-  /* Layout inside each stat card */
-  .stats-container {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-  }
-  
-  /* Container for the GIF on the left */
-  .gif-container {
-    flex: 0 0 30%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-right: 5px;
-  }
-  
-  /* Style for the GIF image */
-  .stat-gif {
-    max-width: 100%;
-    max-height: 40px;
-    object-fit: contain;
-  }
-  
-  /* Container for the text content */
-  .stats-content {
-    flex: 0 0 70%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding-left: 5px;
-    overflow: hidden;
-  }
-  
-  /* Label style (stat name) */
-  .stats-label {
-    font-size: 0.75rem;
-    text-transform: capitalize;
-    margin-bottom: 2px;
-    white-space: nowrap;
-  }
-  
-  /* Value style (number) */
-  .stats-value {
-    font-size: 1.2rem;
-    font-weight: bold;
-  }
-  
-  /* Make sure pixel-retroui Cards maintain their white background */
-  .stats-card {
-    background-color: white;
-    border: 2px solid #2f2f2f;
-    box-shadow: 3px 3px 0 #000000;
-  }
-
-  .tile-overlay-gif {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 70px; /* Adjust the size as per your gif */
-    height: 70px;
-    pointer-events: none; /* So it doesn't block clicks */
-  }
-
-  
-  
-  
   
   @keyframes fadeIn {
     from {
@@ -406,3 +247,4 @@ body {
     }
   }
   
+

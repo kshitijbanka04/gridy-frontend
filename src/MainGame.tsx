@@ -88,17 +88,17 @@ const MainGame: React.FC = () => {
     }
   };
 
-  const getTileColor = (index: number) => {
-    if (currentLayer !== 4) return '#000000';
-    switch (tileStates[index]) {
-      case 'diamond':
-        return '#8bc34a';
-      case 'bomb':
-        return '#e57373';
-      default:
-        return '#000000';
-    }
-  };
+  // const getTileColor = (index: number) => {
+  //   if (currentLayer !== 4) return '#000000';
+  //   switch (tileStates[index]) {
+  //     case 'diamond':
+  //       return '#8bc34a';
+  //     case 'bomb':
+  //       return '#e57373';
+  //     default:
+  //       return '#000000';
+  //   }
+  // };
 
   const calculateTileRange = () => {
     if (hoveredTile === null) return null;
