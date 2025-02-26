@@ -22,8 +22,9 @@ const MainGame: React.FC = () => {
   const [transitioning, setTransitioning] = useState(false);
 
   useEffect(() => {
-    const transactionWS = new WebSocket('ws://localhost:8081');
-    const statsWS = new WebSocket('ws://localhost:8082');
+    const transactionWS = new WebSocket(import.meta.env.VITE_WS_TRANSACTION_URL);
+    const statsWS = new WebSocket(import.meta.env.VITE_WS_STATS_URL);
+
 
     transactionWS.onmessage = (event) => {
       const data = JSON.parse(event.data);
