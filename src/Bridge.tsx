@@ -41,6 +41,9 @@ export async function depositWithMessage(account: Account, playerAddress: string
       amount: 12n * 10n ** 18n
     });
 
+    console.log(approve_call)
+
+
     const call = bridge_contract.populate('deposit_with_message', {
       token: gridTokenAddress,
       amount: 11n * 10n ** 18n,
@@ -51,7 +54,10 @@ export async function depositWithMessage(account: Account, playerAddress: string
       ]
     });
 
+    console.log(call)
+
     let result = await account.execute([approve_call, call]);
+
     
     console.log("Transaction sent:", result.transaction_hash);
     return result.transaction_hash;
